@@ -1,16 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
 import * as Styled from './Login.styled'
 import Icone from 'react-native-vector-icons/Ionicons'
 import { useNavigation } from "@react-navigation/native";
 import { SnackBar } from "../../components/snackBar/SnackBar";
+import { useDispatch, useSelector } from 'react-redux';
+import * as exampleActions from '../../store/modules/exampleReducer/actions';
 
 
 export const Login: React.FC = () => {
 
    const { navigate } = useNavigation()
+   const dispatch = useDispatch();
+   const user = useSelector(state => state.exampleReducer.login);
+   console.tron.log('log', user)
+   console.tron.log('Texto', useSelector(state => state.exampleReducer))
 
    const Login = () => {
       SnackBar('Projeto ainda em construção', 'error');
+      dispatch(exampleActions.actionTeste());
       //navigate('Home')
    }
 
@@ -31,6 +38,9 @@ export const Login: React.FC = () => {
                Registrar-se
             </Styled.TextCriarConta>
          </Styled.ButtomCreate>
+         <Styled.TextCriarConta>
+            {user ? 'Logado' : 'OffLine'}
+         </Styled.TextCriarConta>
          <Styled.ButtomLogin>
             <Styled.BtText onPress={() => Login()}>
                Acessar
