@@ -18,6 +18,8 @@ export const Login: React.FC = () => {
     useSelector((state) => state)
   );
 
+  console.tron.log('teste tron: *****************************');
+
   const Login = () => {
     SnackBar('Projeto ainda em construção', 'error');
     dispatch(exampleActions.actionTeste());

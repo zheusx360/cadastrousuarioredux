@@ -1,31 +1,44 @@
 module.exports = {
-  root: true,
-  settings: {
-    'import/resolver': {
-      typescript: {},
-    },
+  env: {
+    es2021: true,
+    'react-native/react-native': true,
   },
   extends: [
-    '@react-native-community',
     'eslint:recommended',
     'plugin:react/recommended',
     'plugin:@typescript-eslint/recommended',
-    'plugin:react-hooks/recommended',
+    'prettier',
   ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaFeatures: {
       jsx: true,
     },
-    ecmaVersion: 12,
+    ecmaVersion: 'latest',
     sourceType: 'module',
   },
-  plugins: ['react', '@typescript-eslint', 'prettier'],
+  settings: {
+    react: {
+      version: 'detect',
+    },
+  },
+  plugins: ['react', 'react-native', '@typescript-eslint', 'prettier'],
   rules: {
-    'react/prop-types': 'off',
-    'react-in-jsx-scope': 'off',
-    '@typescript-eslint/explicit-module-boundary-types': 'off',
-    '@typescript-eslint/no-empty-interface': 'off',
-    '@typescript-eslint/no-empty-function': 'off',
+    '@typescript-eslint/no-empty-function': 0,
+    'prettier/prettier': 'error',
+    'no-console': ['error', { allow: ['tron'] }],
+    'import/extensions': 'off',
+    'react-native/no-inline-styles': 2,
+    'react-native/no-raw-text': 0,
+    'react/display-name': 0,
+    '@typescript-eslint/no-unused-vars': [
+      'warn',
+      {
+        argsIgnorePattern: '^_',
+        varsIgnorePattern: '^_',
+        caughtErrorsIgnorePattern: '^_',
+      },
+    ],
+    'react/prop-types': 0,
   },
 };

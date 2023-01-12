@@ -1,6 +1,10 @@
 import styled from 'styled-components/native';
 
-export const Container = styled.View`
+interface Types {
+  ml?: number;
+}
+
+export const Container = styled.View<Types>`
   flex: 1;
   justify-content: center;
   align-items: center;
