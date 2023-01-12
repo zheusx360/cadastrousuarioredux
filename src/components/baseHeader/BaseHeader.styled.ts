@@ -1,5 +1,5 @@
 import Icone from 'react-native-vector-icons/Ionicons';
-import styled from 'styled-components';
+import styled from 'styled-components/native';
 import { StatusBar, Dimensions } from 'react-native';
 
 const { height } = Dimensions.get('window');

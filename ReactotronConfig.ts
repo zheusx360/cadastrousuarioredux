@@ -1,4 +1,3 @@
-import AsyncStorage from '@react-native-community/async-storage';
 import Reactotron from 'reactotron-react-native';
 
 declare global {
@@ -9,7 +8,6 @@ declare global {
 
 const reactotron = __DEV__
   ? Reactotron.configure() // controls connection & communication settings
-      .setAsyncStorageHandler(AsyncStorage)
       .useReactNative() // add all built-in react native plugins
       .connect() // let's connect!
   : {
