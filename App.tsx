@@ -8,8 +8,12 @@ StatusBar.setBarStyle('dark-content');
 StatusBar.setBackgroundColor('transparent');
 StatusBar.setTranslucent(true);
 
-if (__DEV__) {
-  import('./ReactotronConfig').then(() => console.log('Reactotron Configured'));
+//Variavel global INavigation para TypeAnnotation do navigation
+declare global {
+  type INavigation = {
+    navigate: (value: string, ...params) => void;
+    goBack: () => void;
+  };
 }
 
 const App = () => {

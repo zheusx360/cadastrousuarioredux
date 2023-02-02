@@ -8,11 +8,11 @@ import * as exampleActions from '../../store/modules/exampleReducer/actions';
 import * as registerActions from '../../store/modules/registerReducer/actions';
 
 export const Login: React.FC = () => {
-  const { navigate } = useNavigation();
+  //Variavel globlal INavigation declarada em App.tsx
+  const { navigate, goBack } = useNavigation<INavigation>();
   const dispatch = useDispatch();
-  const user = useSelector((state) => state.exampleReducer.login);
+  const user = useSelector((state: RootState) => state?.exampleReducer.login);
   dispatch(registerActions.clearDataUser());
-  console.tron.log('log', user);
   console.tron.log(
     'Texto',
     useSelector((state) => state)
@@ -36,7 +36,9 @@ export const Login: React.FC = () => {
         keyboardType="numeric"
         secureTextEntry={true}
       />
-      <Styled.ButtomCreate onPress={() => navigate('Registrar')}>
+      <Styled.ButtomCreate
+        onPress={() => navigate('Registrar', { data: 'teste' })}
+      >
         <Styled.TextCriarConta>Registrar-se</Styled.TextCriarConta>
       </Styled.ButtomCreate>
       <Styled.TextCriarConta>
