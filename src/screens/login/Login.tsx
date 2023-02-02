@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import * as Styled from './Login.styled';
 import Icone from 'react-native-vector-icons/Ionicons';
 import { useNavigation } from '@react-navigation/native';
@@ -9,7 +9,7 @@ import * as registerActions from '../../store/modules/registerReducer/actions';
 
 export const Login: React.FC = () => {
   //Variavel globlal INavigation declarada em App.tsx
-  const { navigate, goBack } = useNavigation<INavigation>();
+  const { navigate } = useNavigation<INavigation>();
   const dispatch = useDispatch();
   const user = useSelector((state: RootState) => state?.exampleReducer.login);
   dispatch(registerActions.clearDataUser());
